@@ -134,8 +134,20 @@ function printBook(book: Book) {
 
 //*******************************************************************
 
-let refBook = new Encyclopedia('WorldPedia', 1900);
-refBook.printItem();
+let Newspaper = class extends ReferenceItem {
+  printCitation(): void {
+    console.log(`Newspaper: ${this.title}`);
+  }
+}
+
+const myPaper = new Newspaper('The New York Times', 2019);
+myPaper.printCitation();
+
+
+
+
+/* let refBook: ReferenceItem = new Encyclopedia('WorldPedia', 1900, 10);
+refBook.printCitation(); */
 
 
 
