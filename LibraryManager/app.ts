@@ -1,6 +1,6 @@
 import { Book, DamageLogger, Person, Author, Librarian } from './interfaces';
 import { Category } from './enums';
-import { UniversityLibrarian } from './classes';
+import { UniversityLibrarian, ReferenceItem, Encyclopedia } from './classes';
 /**
  * Retorna todos los libros
  */
@@ -134,10 +134,30 @@ function printBook(book: Book) {
 
 //*******************************************************************
 
+let refBook = new Encyclopedia('WorldPedia', 1900);
+refBook.printItem();
+
+
+
+
+
+
+
+
+
+
+
+/* let ref: ReferenceItem = new ReferenceItem('Facts and Figures', 2016);
+ref.title = 'Facts and Figures';
+
+ref.publisher = 'Random Publisher';
+console.log(ref.publisher); */
+
+/* 
 let favoriteLibrarian: Librarian = new UniversityLibrarian();
 favoriteLibrarian.name = 'Sharon';
 favoriteLibrarian.assistCustomer('Lynda');
-
+ */
 
 
 /* let myBook: Book = {
