@@ -1,6 +1,6 @@
-import { Librarian } from './interfaces';
+import * as Interfaces from './interfaces';
 
-export class UniversityLibrarian implements Librarian {
+export class UniversityLibrarian implements Interfaces.Librarian {
 
   name: string;
   email: string;
@@ -34,21 +34,6 @@ export abstract class ReferenceItem {
   }
 
   abstract printCitation(): void;
-}
-
-export class Encyclopedia extends ReferenceItem {
-  constructor(newTitle: string, newYear: number, public edition: number) {
-    super(newTitle, newYear);
-  }
-
-  printItem() {
-    super.printItem();
-    console.log(`Edition: ${this.edition} (${this.year})`);
-  }
-
-  printCitation(): void {
-    console.log(`${this.title} - ${this.year}`);
-  }
 }
 
   

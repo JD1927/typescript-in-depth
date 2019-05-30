@@ -1,6 +1,13 @@
-import { Book, DamageLogger, Person, Author, Librarian } from './interfaces';
+import { Book, Logger, Author, Librarian } from './interfaces';
 import { Category } from './enums';
-import { UniversityLibrarian, ReferenceItem, Encyclopedia } from './classes';
+import { UniversityLibrarian, ReferenceItem } from './classes';
+import { calculateLateFee as CalcFee, maxBooksAllowed } from './lib/utilityFunctions';
+import  RefBook  from './encyclopedia';
+
+let reference = new RefBook('Fact Book', 2019, 8);
+
+let fee = CalcFee(5);
+let max = maxBooksAllowed(20);
 /**
  * Retorna todos los libros
  */
