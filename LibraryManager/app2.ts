@@ -70,9 +70,9 @@ let anotherString2: string = 'this is also a string';
  * ===============================================================
  */
 
-enum category { Biography, Poetry, Fiction }; // 0, 1, 2
+//enum category { Biography, Poetry, Fiction }; // 0, 1, 2
 
-enum category { Biography = 1, Poetry, Fiction }; // 1, 2, 3
+//enum category { Biography = 1, Poetry, Fiction }; // 1, 2, 3
 
 enum category { Biography = 5, Poetry = 8, Fiction = 9 }; // 5, 8, 9
 

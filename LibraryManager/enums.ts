@@ -3,5 +3,6 @@ export enum Category {
   Poetry, 
   Fiction, 
   History, 
-  Children 
+  Children,
+  Software
 };

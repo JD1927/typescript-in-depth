@@ -1,8 +1,10 @@
-import { Book, Logger, Author, Librarian } from './interfaces';
-import { Category } from './enums';
+import { Book, Logger, Author, Librarian, Magazine } from './interfaces';
 import { UniversityLibrarian, ReferenceItem } from './classes';
-import { calculateLateFee as CalcFee, maxBooksAllowed } from './lib/utilityFunctions';
-import  RefBook  from './encyclopedia';
+import { calculateLateFee as CalcFee, maxBooksAllowed, Purge } from './lib/utilityFunctions';
+import { Category } from './enums';
+import RefBook from './encyclopedia';
+
+import Shelf from './shelf';
 
 let reference = new RefBook('Fact Book', 2019, 8);
 
@@ -118,7 +120,7 @@ function getTitles(bookProperty: string | boolean): string[] {
   if (typeof bookProperty == 'string') {
     // get all books by a particular author
     for (let book of allBooks) {
-      if(book.author === bookProperty){
+      if (book.author === bookProperty) {
         foundTitles.push(book.title);
       }
     }
@@ -141,6 +143,66 @@ function printBook(book: Book) {
 
 //*******************************************************************
 
+const inventory: Array<Book> =[
+  { id: 10, title: 'C++', author: 'J', available: true, category: Category.Software },
+  { id: 20, title: 'Python', author: 'E', available: false, category: Category.Software },
+  { id: 30, title: 'Javascript', author: 'M', available: true, category: Category.Software },
+  { id: 40, title: 'PHP', author: 'H', available: true, category: Category.Software }
+];
+
+let bookShelf: Shelf<Book> = new Shelf<Book>();
+
+inventory.forEach(book => bookShelf.add(book));
+
+let firstBook: Book = bookShelf.getFirst();
+
+// -----------------------------------------------
+
+const magazine: Array<Magazine> = [
+  {title: 'POO', publisher: 'Coders'},
+  {title: 'POO2', publisher: 'Coders2'},
+  {title: 'POO3', publisher: 'Coders3'},
+];
+
+let magazineShelf: Shelf<Magazine> = new Shelf<Magazine>();
+
+magazine.forEach(mag => magazineShelf.add(mag));
+
+let firstMagazine: Magazine = magazineShelf.getFirst();
+
+magazineShelf.printTitles();
+
+
+
+
+
+
+
+
+
+
+
+/* const purgeBooks: Array<Book> = Purge<Book>(inventory);
+
+purgeBooks.forEach(book => console.log(book.title));
+
+const purgedNums: Array<number> = Purge<number>([1, 2, 3, 4]);
+
+console.log(purgedNums); */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 let Newspaper = class extends ReferenceItem {
   printCitation(): void {
     console.log(`Newspaper: ${this.title}`);
@@ -149,7 +211,7 @@ let Newspaper = class extends ReferenceItem {
 
 const myPaper = new Newspaper('The New York Times', 2019);
 myPaper.printCitation();
-
+ */
 
 
 
@@ -172,7 +234,7 @@ ref.title = 'Facts and Figures';
 ref.publisher = 'Random Publisher';
 console.log(ref.publisher); */
 
-/* 
+/*
 let favoriteLibrarian: Librarian = new UniversityLibrarian();
 favoriteLibrarian.name = 'Sharon';
 favoriteLibrarian.assistCustomer('Lynda');

@@ -10,13 +10,11 @@
     "showReuseMessage": true,
     "clear": false
   },
-  "args": [
-    "--target","ES5",
+  "args": ["--target","ES5",
     "--outDir","js",
     "--module","commonjs",
     "--sourceMap",
     "--watch",
-    "app.ts"
-  ],
+    "app.ts"],
   "problemMatcher": "$tsc"
 }
